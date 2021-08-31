@@ -44,7 +44,8 @@ for (let i = 0; i < tabPanes.length; i++) {
 
 // Send email Info
 //get the form by its id
-const form = document.getElementById('contact-form');
+const form = document.querySelector('form');
+console.log(form);
 
 const formEvent = form.addEventListener('submit', (event) => {
   event.preventDefault();
