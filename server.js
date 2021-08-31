@@ -46,7 +46,6 @@ app.post('/send', (req, res) => {
       data[property] = fields[property].toString();
     });
 
-    //2. You can configure the object however you want
     const mail = {
       from: data.name,
       to: process.env.EMAIL,
@@ -54,7 +53,6 @@ app.post('/send', (req, res) => {
       text: `${data.name} <${data.email}> \n${data.message}`,
     };
 
-    //3.
     transporter.sendMail(mail, (err, data) => {
       if (err) {
         console.log(err);
