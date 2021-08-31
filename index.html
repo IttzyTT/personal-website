@@ -74,19 +74,19 @@
           <ul>
             <li>
               <span class="nav-numbers-mobile">01.</span>
-              <a href="#about" class="active-page">About</a>
+              <a href="#about">About</a>
             </li>
             <li>
               <span class="nav-numbers-mobile">02.</span>
-              <a href="#experience" class="active-page">Experience</a>
+              <a href="#experience">Experience</a>
             </li>
             <li>
               <span class="nav-numbers-mobile">03.</span>
-              <a href="#work" class="active-page">Work</a>
+              <a href="#work">Work</a>
             </li>
             <li>
               <span class="nav-numbers-mobile">04.</span>
-              <a href="#contact" class="active-page">Contact</a>
+              <a href="#contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -366,7 +366,7 @@
           <div class="section-title work-title">
             <h2><span class="chapter">03. </span>Some things I've built</h2>
           </div>
-          <!-- project-1 -->
+
           <div class="work-list">
             <ul>
               <li>
@@ -600,8 +600,7 @@
               <span class="tags">&lt;/h2&gt;</span>
             </div>
 
-            <form class="contact-form" action="" method="POST" enctype="text/plain">
-              <input type="hidden" name="_next" value="https://portfolio.ilj.nu/pages/thankyou.html" />
+            <form id="contact-form" action="/send" method="POST" enctype="multipart/form-data">
               <span class="tags form-tag">&lt;form&gt;</span>
               <div class="top-inputs">
                 <input class="name" type="text" name="name" placeholder="Name" required />
@@ -642,7 +641,6 @@
     </main>
 
     <!-- Scripts -->
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="main.js"></script>
   </body>
 </html>

@@ -76,7 +76,9 @@ section {
 .first-tag {
   margin-left: -2.5rem;
 }
-
+.open-nav {
+  display: none;
+}
 /* Navbar -----------------------------------------*/
 menu {
   height: 100vh;
@@ -949,8 +951,8 @@ footer p {
     display: none;
   }
   main {
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
   #mail-txt {
     display: none;
@@ -1012,6 +1014,7 @@ footer p {
     position: fixed;
     right: 0;
     top: 0;
+    bottom: 0;
     z-index: 10;
     height: 100vh;
     width: 100%;
@@ -1139,6 +1142,13 @@ footer p {
     margin-left: -12rem;
     max-width: 41rem;
   }
+  .project-txt-opposite {
+    padding: 1.3rem;
+    font-size: 1.1rem;
+    line-height: 20px;
+    margin-left: 0rem;
+    max-width: 41rem;
+  }
 }
 
 /* 
@@ -1151,8 +1161,8 @@ footer p {
     display: none;
   }
   main {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   #mail-txt {
     display: none;
@@ -1174,8 +1184,8 @@ footer p {
 
   /*  MOBILE NAV */
   .wrapper-menu {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     position: fixed;
     z-index: 11;
     right: 30px;
@@ -1227,7 +1237,7 @@ footer p {
     overflow: hidden;
   }
   .logo-container-mobile {
-    height: 20%;
+    height: 30%;
     background-color: var(--sec-color);
     display: flex;
     justify-content: center;
@@ -1255,11 +1265,11 @@ footer p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 5rem;
+    margin-top: 3rem;
   }
   .links-mobile li {
     list-style: none;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
   .links-mobile li a {
     text-decoration: none;
@@ -1288,7 +1298,7 @@ footer p {
     display: inline-block;
     content: '';
     border-top: 1px solid var(--tags-color);
-    width: 15rem;
+    width: 7rem;
     transform: translateY(0.7rem);
   }
   .socialmedia-container-mobile i {
@@ -1312,7 +1322,7 @@ footer p {
   .dev-txt {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15rem;
+    margin-bottom: 18rem;
   }
   #home-txt a {
     padding: 1rem;
@@ -1350,11 +1360,14 @@ footer p {
     margin-top: 2rem;
   }
   .skills-list {
-    margin-left: 1.5rem;
+    margin-left: 1rem;
   }
   .about-skills li {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding-bottom: 1rem;
+  }
+  .about-skills i {
+    font-size: 0.7rem;
   }
   /* EXPERIENCE */
   .experience-title h1 {
