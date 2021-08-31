@@ -1,27 +1,65 @@
-// Listen to Submit
-document.querySelector('.contact-form').addEventListener('submit', submitForm);
+// Mobile nav
+const wrapperMenu = document.querySelector('.wrapper-menu');
+const mobileNav = document.querySelector('.open-nav');
+let mobileLinks = document.querySelectorAll('.links-mobile ul li a');
 
-function submitForm(e) {
-  e.preventDefault();
+wrapperMenu.addEventListener('click', function () {
+  wrapperMenu.classList.toggle('open');
 
-  // Get input values
-  let name = document.querySelector('.name').value;
-  let email = document.querySelector('.email').value;
-  let subject = document.querySelector('.subject').value;
-  let message = document.querySelector('.message').value;
+  if (mobileNav.style.display === 'block') {
+    mobileNav.style.display = 'none';
+  } else {
+    mobileNav.style.display = 'block';
+  }
+});
 
-  document.querySelector('.contact-form').reset();
+mobileLinks.forEach(function (link) {
+  link.addEventListener('click', function () {
+    mobileNav.style.display = 'none';
+    wrapperMenu.classList.toggle('open');
+  });
+});
+// ----------------------------------------------------------------------------
 
-  sendEmail(name, email, subject, message);
+// Job tabs
+function _class(name) {
+  return document.getElementsByClassName(name);
 }
+
+let tabPanes = _class('tab-header')[0].getElementsByTagName('div');
+
+for (let i = 0; i < tabPanes.length; i++) {
+  tabPanes[i].addEventListener('click', function () {
+    _class('tab-header')[0].getElementsByClassName('active')[0].classList.remove('active');
+    tabPanes[i].classList.add('active');
+
+    _class('tab-indicator')[0].style.top = `calc(80px + ${i * 50}px)`;
+
+    _class('tab-content')[0].getElementsByClassName('active')[0].classList.remove('active');
+    _class('tab-content')[0].getElementsByTagName('div')[i].classList.add('active');
+  });
+}
+
+// contact form
 
 // Send email Info
-function sendEmail(name, email, subject, message) {
-  Email.send({
-    SecureToken: '145731b8-ff91-4382-8837-d130c9cf8aa3',
-    To: 'igorljevak@gmail.com',
-    From: 'igorljevak@gmail.com',
-    Subject: `${subject}`,
-    Body: `Name: ${name} <br/> Email: ${email} <br/> Subject: ${subject} <br/> Message: ${message}`,
-  }).then((message) => alert('mail sent seccessfully'));
-}
+//get the form by its id
+const form = document.getElementById('contact-form');
+
+const formEvent = form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  console.log('submitted');
+
+  let mail = new FormData(form);
+
+  sendMail(mail);
+});
+
+const sendMail = (mail) => {
+  fetch('https://igorljevak.com/send', {
+    method: 'post',
+    body: mail,
+  }).then((response) => {
+    return response.json();
+  });
+};
