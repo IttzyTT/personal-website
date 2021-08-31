@@ -1161,8 +1161,8 @@ footer p {
     display: none;
   }
   main {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.7rem;
+    padding-right: 1.7rem;
   }
   #mail-txt {
     display: none;
@@ -1231,7 +1231,7 @@ footer p {
     right: 0;
     top: 0;
     z-index: 10;
-    height: 100vh;
+    height: 103vh;
     width: 100%;
     background-color: var(--main-color);
     overflow: hidden;
@@ -1288,7 +1288,7 @@ footer p {
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 10%;
+    height: 13vh;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -1322,7 +1322,7 @@ footer p {
   .dev-txt {
     display: flex;
     flex-direction: column;
-    margin-bottom: 18rem;
+    margin-bottom: 19rem;
   }
   #home-txt a {
     padding: 1rem;
@@ -1337,7 +1337,7 @@ footer p {
     align-items: flex-end;
   }
   #home-img img {
-    width: 20rem;
+    width: 19rem;
     margin-right: 1rem;
     position: absolute;
     bottom: 0;
