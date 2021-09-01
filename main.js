@@ -1,7 +1,11 @@
 // Mobile nav
 const wrapperMenu = document.querySelector('.wrapper-menu');
 const mobileNav = document.querySelector('.open-nav');
-let mobileLinks = document.querySelectorAll('.links-mobile ul li a');
+const mobileLinks = document.querySelectorAll('.links-mobile ul li a');
+const mobileLogo = document.querySelector('.logo-container-mobile a').addEventListener('click', () => {
+  wrapperMenu.classList.toggle('open');
+  mobileNav.style.display = 'none';
+});
 
 wrapperMenu.addEventListener('click', function () {
   wrapperMenu.classList.toggle('open');
@@ -19,6 +23,34 @@ mobileLinks.forEach(function (link) {
     wrapperMenu.classList.toggle('open');
   });
 });
+
+// ----------------------------------------------------------------------------
+// Canvas Globe
+window.onload = function () {
+  try {
+    TagCanvas.Start('myCanvas', 'tags', {
+      textColour: '#08FDD8',
+      outlineThickness: 0.5,
+      outlineColour: '#FE0853',
+      maxSpeed: 0.06,
+      freezeActive: true,
+      shuffleTags: true,
+      shape: 'sphere',
+      zoom: 0.8,
+      wheelZoom: false,
+      noSelect: true,
+      textFont: 'Roboto Mono',
+      textHeight: 20,
+      freezeDecel: true,
+      fadeIn: 3000,
+      initial: [0.2, -0.1],
+      depth: 1.1,
+    });
+  } catch (e) {
+    // something went wrong, hide the canvas container
+    document.getElementById('myCanvasContainer').style.display = 'none';
+  }
+};
 // ----------------------------------------------------------------------------
 
 // Job tabs
