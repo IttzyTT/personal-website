@@ -73,23 +73,18 @@ for (let i = 0; i < tabPanes.length; i++) {
 }
 
 // contact form
-
 // Send email Info
-//get the form by its id
-const form = document.querySelector('form');
+const form = document.getElementById('contact-form');
 console.log(form);
 
 const formEvent = form.addEventListener('submit', (event) => {
   event.preventDefault();
-  console.log('submitted');
-
   let mail = new FormData(form);
-
   sendMail(mail);
 });
 
 const sendMail = (mail) => {
-  fetch('https://igorljevak.com/send', {
+  fetch('https://igorljevak.com/', {
     method: 'post',
     body: mail,
   }).then((response) => {
