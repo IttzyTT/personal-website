@@ -1,23 +1,18 @@
 const express = require('express');
+const cors = require('cors');
 const nodemailer = require('nodemailer');
 const multiparty = require('multiparty');
 require('dotenv').config();
 
+const PORT = process.env.PORT || 5000;
+
 // instantiate an express app
 const app = express();
+// cors
+app.use(cors({ origin: '*' }));
 
-// make the contact page the first page on the app
-app.route('/').get(function (req, res) {
-  res.sendFile(process.cwd() + '/index.html');
-});
+app.use('/', express.static(process.cwd() + '/')); //make public static
 
-//port will be 5000 for testing
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}...`);
-});
-
-// Transport object
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -35,9 +30,7 @@ transporter.verify(function (error, success) {
   }
 });
 
-// POST route
 app.post('/send', (req, res) => {
-  //1.
   let form = new multiparty.Form();
   let data = {};
   form.parse(req, function (err, fields) {
@@ -45,14 +38,13 @@ app.post('/send', (req, res) => {
     Object.keys(fields).forEach(function (property) {
       data[property] = fields[property].toString();
     });
-
+    console.log(data);
     const mail = {
-      from: data.name,
-      to: process.env.EMAIL,
+      sender: `${data.name} <${data.email}>`,
+      to: process.env.EMAIL, // receiver email,
       subject: data.subject,
       text: `${data.name} <${data.email}> \n${data.message}`,
     };
-
     transporter.sendMail(mail, (err, data) => {
       if (err) {
         console.log(err);
@@ -62,4 +54,15 @@ app.post('/send', (req, res) => {
       }
     });
   });
+});
+
+//Index page (static HTML)
+app.route('/').get(function (req, res) {
+  res.sendFile(process.cwd() + '/index.html');
+});
+
+/*************************************************/
+// Express server listening...
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}...`);
 });
