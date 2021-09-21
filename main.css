@@ -25,12 +25,11 @@
 html {
   font-size: 12px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   background-color: var(--sec-color);
-  margin: 0px auto;
   width: 100%;
-  max-width: 1600px;
   min-height: 100vh;
   position: relative;
 }
@@ -38,11 +37,14 @@ a {
   text-decoration: none;
 }
 main {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 15rem;
-  padding-right: 7rem;
+  max-width: 1600px;
+  margin: 0px auto;
+  position: relative;
+  padding-left: 17rem;
 }
 main::before {
   content: '<html>';
@@ -51,8 +53,8 @@ main::before {
   color: var(--tags-color);
   opacity: 0.5;
   position: absolute;
-  margin-top: 0rem;
-  left: 14rem;
+  margin-top: 0;
+  left: 190px;
 }
 main::after {
   content: '</html> ';
@@ -61,7 +63,7 @@ main::after {
   color: var(--tags-color);
   opacity: 0.5;
   position: absolute;
-  left: 14rem;
+  left: 190px;
   bottom: 0;
 }
 section {
@@ -165,14 +167,13 @@ section::after {
 /* BG-Anim */
 #container {
   position: absolute;
-  left: -330px;
+  left: 0px;
   right: 0;
   top: 0;
   bottom: 0;
-  width: 100%;
+  width: 90%;
   opacity: 0.3;
 }
-
 
 /* Navbar -----------------------------------------*/
 menu {
@@ -349,7 +350,7 @@ nav ul li a:hover {
   opacity: 0.5;
   position: absolute;
   bottom: -3rem;
-  left: 0;
+  left: 350px;
 }
 #home-txt h3 {
   font-family: var(--main-font);
@@ -446,10 +447,9 @@ nav ul li a:hover {
 }
 .about-right {
   width: 40%;
-  border: 1px dotted blue;
 }
 .about-txt {
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   font-family: var(--main-font);
   color: var(--font-color2);
   line-height: 25px;
@@ -1095,7 +1095,32 @@ footer p {
 
 @media (min-width: 1446px) and (max-width: 1750px) {
   main {
+    position: relative;
     padding-left: 17rem;
+  }
+  main::before {
+    content: '<html>';
+    font-size: 1.4rem;
+    font-family: var(--tags-font);
+    color: var(--tags-color);
+    opacity: 0.5;
+    position: absolute;
+    margin-top: 0;
+    left: 190px;
+  }
+  main::after {
+    content: '</html> ';
+    font-size: 1.4rem;
+    font-family: var(--tags-font);
+    color: var(--tags-color);
+    opacity: 0.5;
+    position: absolute;
+    left: 190px;
+    bottom: 0;
+  }
+  #home-img img {
+    width: 35rem;
+    margin-right: 8rem;
   }
 }
 
@@ -1105,7 +1130,28 @@ footer p {
 */
 @media (min-width: 1281px) and (max-width: 1445px) {
   main {
-    padding-left: 18rem;
+    padding-left: 15rem;
+    position: relative;
+  }
+  main::before {
+    content: '<html>';
+    font-size: 1.4rem;
+    font-family: var(--tags-font);
+    color: var(--tags-color);
+    opacity: 0.5;
+    position: absolute;
+    margin-top: 0;
+    left: 160px;
+  }
+  main::after {
+    content: '</html> ';
+    font-size: 1.4rem;
+    font-family: var(--tags-font);
+    color: var(--tags-color);
+    opacity: 0.5;
+    position: absolute;
+    left: 160px;
+    bottom: 0;
   }
   /* HOME */
   #home-txt h1 {
@@ -1114,15 +1160,35 @@ footer p {
     margin-left: 1.6rem;
   }
   #home-img img {
-    width: 38rem;
+    width: 32rem;
+    margin-right: 8rem;
+  }
+  /* ABOUT */
+  .about-container {
+    display: flex;
+    margin-top: 7rem;
+    flex-direction: column;
+  }
+  .about-txt {
+    font-size: 1.5rem;
+  }
+  .about-right {
+    display: none;
   }
   /* EXPERIENCE */
   .experience-left {
-    width: 65%;
+    width: 50%;
+  }
+  .experience-right {
+    width: 40%;
   }
   /* WORK */
+  .work-list {
+    margin-top: 8rem;
+    width: 90%;
+  }
   .project-img-wrapper {
-    width: 50rem;
+    width: 45rem;
     height: 23rem;
   }
 }
@@ -1134,7 +1200,7 @@ footer p {
 
 @media (min-width: 1025px) and (max-width: 1280px) {
   main {
-    padding-left: 18rem;
+    padding-left: 15rem;
   }
   #mail-txt {
     right: 2rem;
@@ -1154,10 +1220,10 @@ footer p {
     width: 20rem;
   }
   #home-img img {
-    width: 34rem;
+    width: 30rem;
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 50px;
   }
   /* ABOUT */
   .about-container {
@@ -1165,7 +1231,7 @@ footer p {
     flex-direction: column;
   }
   .about-left {
-    min-width: 100%;
+    min-width: 90%;
     margin-bottom: 4rem;
   }
   .about-txt {
@@ -1183,7 +1249,7 @@ footer p {
     width: 100%;
   }
   .experience-right {
-    width: 55%;
+    width: 40%;
   }
   .tabs {
     height: 30rem;

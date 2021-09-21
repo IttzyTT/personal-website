@@ -14,7 +14,7 @@ function Animate(canvas, options) {
  * Default options
  */
 Animate.prototype.options = {
-  density: 8, // Affects how many poitns are created
+  density: 10, // Affects how many poitns are created
   speed: 10, // Time in seconds to shift points
   sync: false, // Should points move in sync
   distance: 100, // Distance to move points

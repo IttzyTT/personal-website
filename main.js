@@ -84,8 +84,8 @@ const formEvent = form.addEventListener('submit', (event) => {
 });
 
 const sendMail = (mail) => {
-  fetch('https://igorljevak.com/', {
-    method: 'post',
+  fetch('/send', {
+    method: 'POST',
     body: mail,
   }).then((response) => {
     return response.json();
